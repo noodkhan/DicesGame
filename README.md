@@ -38,7 +38,6 @@
   <section>
     <h2>Quick Start</h2>
     <p class="muted">Clone, install dependencies and run the simulation script.</p>
-    <pre><code>git clone https://github.com/yourusername/dice-game-simulation.git
 cd dice-game-simulation
 pip install -r requirements.txt   # or pip install matplotlib
 python dice_game.py</code></pre>
@@ -95,6 +94,5 @@ Q[choice] += learning_rate * (reward - Q[choice])</code></pre>
   <section>
     <h2>License</h2>
     <p>MIT © <span id="year"></span> — free to use, modify and experiment.</p>
-    <a class="cta" href="https://github.com/yourusername/dice-game-simulation">View on GitHub</a>
   </section>
 </html>
