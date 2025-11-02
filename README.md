@@ -1,5 +1,4 @@
-<image src="https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974"></image>
-  
+
   <section>
     <h2>Overview</h2>
     <p>This repository contains a flexible Python simulation of a dice betting game. It runs Monte Carlo-style experiments to analyze betting choices (HIGH, LOW, EXACT, single-die bets and pattern bets). The project produces summary statistics and Matplotlib visualizations to help understand house edge, win rates and streak behavior.</p>
@@ -97,4 +96,6 @@ Q[choice] += learning_rate * (reward - Q[choice])</code></pre>
     <h2>License</h2>
     <p>MIT © <span id="year"></span> — free to use, modify and experiment.</p>
   </section>
-</html>
+
+<image src="https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974"></image>
+  
