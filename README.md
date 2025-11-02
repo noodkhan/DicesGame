@@ -1,34 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dice Game Simulation — GitHub Repo Description</title>
-  <style>
-    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.6; color:#0b1220; padding:28px; max-width:900px; margin:0 auto; background:#f7fafc; }
-    header { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
-    h1 { margin:0; font-size:1.6rem; }
-    .badge { background:#eef2ff; color:#3730a3; padding:6px 10px; border-radius:8px; font-weight:600; font-size:0.85rem;}
-    section { background:white; border-radius:10px; padding:18px; box-shadow:0 4px 18px rgba(11,18,32,0.06); margin-bottom:16px; }
-    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; font-size:0.95rem; background:#0f172a05; padding:6px 8px; border-radius:6px; }
-    pre { padding:12px; overflow:auto; }
-    ul { margin:8px 0 8px 20px; }
-    table { width:100%; border-collapse:collapse; margin-top:8px; }
-    th, td { text-align:left; border-bottom:1px solid #eef2f6; padding:8px 6px; }
-    .muted { color:#475569; font-size:0.95rem; }
-    .cta { display:inline-block; background:#2563eb; color:white; padding:10px 14px; border-radius:8px; text-decoration:none; margin-top:8px;}
-    footer { text-align:center; color:#94a3b8; font-size:0.9rem; margin-top:18px; }
-  </style>
-</head>
-<body>
-  <header>
-    <div>
-      <h1>🎲 Dice Game Simulation</h1>
-      <div class="muted">Probabilistic dice betting simulator with multiple bet types, Monte Carlo runs and visualization.</div>
-    </div>
-    <div style="margin-left:auto"><span class="badge">Python • Simulation • Data</span></div>
-  </header>
-
   <section>
     <h2>Overview</h2>
     <p>This repository contains a flexible Python simulation of a dice betting game. It runs Monte Carlo-style experiments to analyze betting choices (HIGH, LOW, EXACT, single-die bets and pattern bets). The project produces summary statistics and Matplotlib visualizations to help understand house edge, win rates and streak behavior.</p>
