@@ -45,6 +45,9 @@ python dice_game.py</code></pre>
     <p>Run with <code>live_plot=True</code> to see an animated balance plot during simulation.</p>
   </section>
 
+<image src="https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974"></image>
+  
+
   <section>
     <h2>Example Output (console)</h2>
     <pre><code>📊 ====== SIMULATION SUMMARY ======
@@ -97,5 +100,4 @@ Q[choice] += learning_rate * (reward - Q[choice])</code></pre>
     <p>MIT © <span id="year"></span> — free to use, modify and experiment.</p>
   </section>
 
-<image src="https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974"></image>
-  
+
