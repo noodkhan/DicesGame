@@ -97,11 +97,4 @@ Q[choice] += learning_rate * (reward - Q[choice])</code></pre>
     <p>MIT © <span id="year"></span> — free to use, modify and experiment.</p>
     <a class="cta" href="https://github.com/yourusername/dice-game-simulation">View on GitHub</a>
   </section>
-
-  <footer>
-    Built with ❤️ — drop issues or PRs to improve rules, visualization or AI agents.
-  </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
 </html>
