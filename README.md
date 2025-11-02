@@ -1,106 +1,138 @@
-🎲 Dice Game Simulation — Python Monte Carlo Dice Strategy Analyzer
-🧠 Overview
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dice Game Simulation — GitHub Repo Description</title>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.6; color:#0b1220; padding:28px; max-width:900px; margin:0 auto; background:#f7fafc; }
+    header { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+    h1 { margin:0; font-size:1.6rem; }
+    .badge { background:#eef2ff; color:#3730a3; padding:6px 10px; border-radius:8px; font-weight:600; font-size:0.85rem;}
+    section { background:white; border-radius:10px; padding:18px; box-shadow:0 4px 18px rgba(11,18,32,0.06); margin-bottom:16px; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; font-size:0.95rem; background:#0f172a05; padding:6px 8px; border-radius:6px; }
+    pre { padding:12px; overflow:auto; }
+    ul { margin:8px 0 8px 20px; }
+    table { width:100%; border-collapse:collapse; margin-top:8px; }
+    th, td { text-align:left; border-bottom:1px solid #eef2f6; padding:8px 6px; }
+    .muted { color:#475569; font-size:0.95rem; }
+    .cta { display:inline-block; background:#2563eb; color:white; padding:10px 14px; border-radius:8px; text-decoration:none; margin-top:8px;}
+    footer { text-align:center; color:#94a3b8; font-size:0.9rem; margin-top:18px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>🎲 Dice Game Simulation</h1>
+      <div class="muted">Probabilistic dice betting simulator with multiple bet types, Monte Carlo runs and visualization.</div>
+    </div>
+    <div style="margin-left:auto"><span class="badge">Python • Simulation • Data</span></div>
+  </header>
 
-This project simulates a probabilistic dice betting game where a player starts with a fixed balance and competes against a broker.
-The game includes multiple betting strategies (HIGH, LOW, EXACT, DIE HIGH/LOW, and PATTERN), each with distinct rules and reward multipliers.
+  <section>
+    <h2>Overview</h2>
+    <p>This repository contains a flexible Python simulation of a dice betting game. It runs Monte Carlo-style experiments to analyze betting choices (HIGH, LOW, EXACT, single-die bets and pattern bets). The project produces summary statistics and Matplotlib visualizations to help understand house edge, win rates and streak behavior.</p>
+  </section>
 
-It visualizes game dynamics through real-time and summary plots, helping analyze:
+  <section>
+    <h2>Game Rules (short)</h2>
+    <ul>
+      <li><strong>Starting Balance:</strong> Player starts with <code>$3500</code> and bets <code>$100</code> per round.</li>
+      <li><strong>Dice Roll:</strong> 3 dice are rolled each round (values 1–6, simulated using a normal approximation).</li>
+      <li><strong>Player Choices:</strong> HIGH, LOW, EXACT, DIE_HIGH, DIE_LOW, PATTERN.</li>
+      <li><strong>Winning:</strong>
+        <ul>
+          <li><strong>HIGH</strong>: guessed total matches a <em>new</em> 3-dice roll (up to 3 tries) → payout multiplier (configurable).</li>
+          <li><strong>LOW</strong>: guessed total from 2 dice matches a new 3-dice roll (up to 2 tries) → payout multiplier.</li>
+          <li><strong>EXACT</strong>: guessed total matches the <em>current</em> roll → higher multiplier.</li>
+          <li><strong>DIE_HIGH / DIE_LOW</strong>: predict a single die range → lower multiplier.</li>
+          <li><strong>PATTERN</strong>: predict pattern like all same / pair → configurable multiplier.</li>
+        </ul>
+      </li>
+      <li><strong>Losing:</strong> player loses their bet; broker gains it.</li>
+      <li><strong>Reset:</strong> game restarts when balance ≤ $0.</li>
+    </ul>
+  </section>
 
-Player vs Broker balance trends
+  <section>
+    <h2>Features</h2>
+    <ul>
+      <li>Monte Carlo simulation of thousands of rounds</li>
+      <li>Multiple betting options & configurable multipliers</li>
+      <li>Choice-level statistics (attempts, wins, empirical win rates)</li>
+      <li>Balance tracking for player and broker</li>
+      <li>Matplotlib visualizations: balance over time, win-rate curves, losing-streak distribution</li>
+      <li>Easy to extend: add new bet types, add learning agents (Q-learning) or change weights</li>
+    </ul>
+  </section>
 
-Choice-specific win rates
+  <section>
+    <h2>Quick Start</h2>
+    <p class="muted">Clone, install dependencies and run the simulation script.</p>
+    <pre><code>git clone https://github.com/yourusername/dice-game-simulation.git
+cd dice-game-simulation
+pip install -r requirements.txt   # or pip install matplotlib
+python dice_game.py</code></pre>
+    <p>Run with <code>live_plot=True</code> to see an animated balance plot during simulation.</p>
+  </section>
 
-Losing streak probability distributions
-
-🕹️ Game Rules
-Starting Balance:
-
-Player starts with $3500 and bets $100 per round.
-
-Dice Roll:
-
-Three dice are rolled per round (values 1–6), simulated using a normal distribution for realistic variation.
-
-Player Choices:
-
-HIGH → Guess the total will be high.
-
-LOW → Guess the total will be low.
-
-EXACT → Guess the exact total of the three dice.
-
-DIE HIGH / DIE LOW → Predict an individual die’s range.
-
-PATTERN → Predict repeating or unique number patterns (e.g., all dice the same).
-
-Winning Rules:
-Choice	Description	Reward
-HIGH	If guessed total matches a new 3-dice roll (up to 3 tries)	3× bet
-LOW	If guessed total (from 2 dice) matches new 3-dice roll (up to 2 tries)	4× bet
-EXACT	If guessed total matches current 3-dice roll	5× bet
-DIE HIGH / DIE LOW	Predicts one die value range	2× bet
-PATTERN	If all dice have the same value	3× bet
-
-Losing Condition: You lose your bet amount (broker gains it).
-Reset: Game restarts if your balance ≤ $0.
-
-📊 Features
-
-Monte Carlo–style simulation of thousands of rounds
-
-Weighted AI decision-making (adjustable strategy bias)
-
-Detailed tracking of win rates, streaks, and total earnings
-
-Matplotlib visualizations for:
-
-Player vs Broker balance
-
-Cumulative win rates per choice
-
-Losing streak distribution
-
-🧩 Example Output
-
-Console summary:
-
-📊 ====== SIMULATION SUMMARY ======
+  <section>
+    <h2>Example Output (console)</h2>
+    <pre><code>📊 ====== SIMULATION SUMMARY ======
 Total rounds simulated: 10000
-Total games (resets) played: 2
-Overall win rate: 46.72%
-Avg broker gain per game: $128.43
+Total games (resets) played: 1
+Overall win rate: 47.23%
+Avg broker gain per game: $142.37
 
 -- Choice-Specific Performance --
-  HIGH (1634 attempts): Win Rate = 45.12%
-  LOW (1663 attempts): Win Rate = 47.33%
-  EXACT (1680 attempts): Win Rate = 12.45%
-  DIE_HIGH (1684 attempts): Win Rate = 50.12%
-  DIE_LOW (1677 attempts): Win Rate = 49.73%
-  PATTERN (1662 attempts): Win Rate = 3.91%
+  HIGH (1600 attempts): Win Rate = 44.80%
+  LOW (1700 attempts): Win Rate = 48.20%
+  EXACT (1650 attempts): Win Rate = 10.30%
+  DIE_HIGH (1675 attempts): Win Rate = 49.10%
+  DIE_LOW (1675 attempts): Win Rate = 49.90%
+  PATTERN (1700 attempts): Win Rate = 3.10%</code></pre>
+    <p class="muted">Plots are generated for balances, win-rates and losing streaks.</p>
+  </section>
 
+  <section>
+    <h2>Extending & AI</h2>
+    <p>This codebase is intentionally modular so you can:</p>
+    <ul>
+      <li>Add a Q-learning agent to replace the random/weighted <code>smart_choice()</code>.</li>
+      <li>Change multipliers and bet rules to model alternative casino variants.</li>
+      <li>Export results to CSV/JSON for further analysis or build training datasets for ML models.</li>
+    </ul>
+    <p class="muted">Example: implement a simple Q-learning update after each round:</p>
+    <pre><code># pseudocode
+Q = {choice: 0.0 for choice in Choice}
+choice = smart_choice_ai(Q, epsilon=0.2)
+reward = compute_reward(choice, win, bet_amount)
+Q[choice] += learning_rate * (reward - Q[choice])</code></pre>
+  </section>
 
-Plots generated:
+  <section>
+    <h2>Project Structure (suggested)</h2>
+    <table>
+      <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>dice_game.py</code></td><td>Main simulation and plotting</td></tr>
+        <tr><td><code>agents.py</code></td><td>Optional AI agents (Q-learning, policies)</td></tr>
+        <tr><td><code>config.py</code></td><td>Constants and multipliers</td></tr>
+        <tr><td><code>results/</code></td><td>Saved CSV/JSON outputs and plots</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-📈 Player vs Broker balance over time
+  <section>
+    <h2>License</h2>
+    <p>MIT © <span id="year"></span> — free to use, modify and experiment.</p>
+    <a class="cta" href="https://github.com/yourusername/dice-game-simulation">View on GitHub</a>
+  </section>
 
-🧮 Cumulative win rate per choice
+  <footer>
+    Built with ❤️ — drop issues or PRs to improve rules, visualization or AI agents.
+  </footer>
 
-📉 Distribution of losing streaks
-
-⚙️ Installation
-git clone https://github.com/yourusername/dice-game-simulation.git
-cd dice-game-simulation
-pip install matplotlib
-python dice_game.py
-
-🧠 Future Improvements
-
-Implement Q-learning to make the AI smarter per round.
-
-Add configurable betting strategy weights.
-
-Export statistics to CSV/JSON for deeper analysis.
-
-🏁 License
-
-MIT License © 2025 — feel free to use, modify, and experiment.
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
